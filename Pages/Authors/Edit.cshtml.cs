@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Abrudan_Crina_Lab2.Data;
 using Abrudan_Crina_Lab2.Models;
+using System.Net.NetworkInformation;
 
 namespace Abrudan_Crina_Lab2.Pages.Authors
 {
@@ -21,7 +22,7 @@ namespace Abrudan_Crina_Lab2.Pages.Authors
         }
 
         [BindProperty]
-        public Author Author { get; set; } = default!;
+        public Abrudan_Crina_Lab2.Models.Author Author { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
