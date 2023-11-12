@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Abrudan_Crina_Lab2.Models;
+using Abrudan_Crina_Lab2.Models.ViewModels;
 
 namespace Abrudan_Crina_Lab2.Data
 {
@@ -21,5 +22,17 @@ namespace Abrudan_Crina_Lab2.Data
         public DbSet<Abrudan_Crina_Lab2.Models.Author>? Author { get; set; }
 
         public DbSet<Abrudan_Crina_Lab2.Models.Category>? Category { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Book>()
+                .HasOne(e => e.Borrowing)
+            .WithOne(e => e.Book)
+                .HasForeignKey<Borrowing>("BookID");
+        }
+
+        public DbSet<Abrudan_Crina_Lab2.Models.Member>? Member { get; set; }
+
+        public DbSet<Abrudan_Crina_Lab2.Models.Borrowing>? Borrowing { get; set; }
     }
 }
