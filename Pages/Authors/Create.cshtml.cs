@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Abrudan_Crina_Lab2.Data;
 using Abrudan_Crina_Lab2.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Abrudan_Crina_Lab2.Pages.Authors
 {
+    [Authorize(Roles = "Admin")]
     public class CreateModel : PageModel
     {
         private readonly Abrudan_Crina_Lab2.Data.Abrudan_Crina_Lab2Context _context;

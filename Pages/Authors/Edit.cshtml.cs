@@ -9,9 +9,11 @@ using Microsoft.EntityFrameworkCore;
 using Abrudan_Crina_Lab2.Data;
 using Abrudan_Crina_Lab2.Models;
 using System.Net.NetworkInformation;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Abrudan_Crina_Lab2.Pages.Authors
 {
+    [Authorize(Roles = "Admin")]
     public class EditModel : PageModel
     {
         private readonly Abrudan_Crina_Lab2.Data.Abrudan_Crina_Lab2Context _context;
